@@ -17,9 +17,7 @@ app.use('/solution', solutionRouter);
 
 // connecting to the index.html
 app.get('/', function (req, res){
-  console.log('Received a request at', new Date());
   var filename = path.join(__dirname, 'public/views/index.html');
-  console.log ('filename:', filename);
   res.sendFile(filename);
 });
 

@@ -8,46 +8,37 @@ var solution = [];
 
 // Sends the solution to client
 router.get('/', function (req, res){
-  console.log('Got a request for: ', solution);
   res.send(solution);
 });
 
 // Addition calulation and send solution
 router.post('/add', function(req, res){
-console.log('Received a request: ', req.body);
 solution.pop();
 solution.push(parseInt(req.body.valueA) + parseInt(req.body.valueB));
-console.log('Solution array: ', solution);
 res.sendStatus(200);
 });
 
 // Subtraction calculation and send solution
 router.post('/subtract', function(req, res){
-  console.log('Received a request: ', req.body);
   solution.pop();
   solution.push(parseInt(req.body.valueA) - parseInt(req.body.valueB));
-  console.log('Solution array: ', solution);
   res.sendStatus(200);
 });
 
 // Multiplication calculation and send solution
 router.post('/multiply', function(req, res){
-  console.log('Received a request: ', req.body);
   solution.pop();
   solution.push(parseInt(req.body.valueA) * parseInt(req.body.valueB));
-  console.log('Solution array: ', solution);
   res.sendStatus(200);
 });
 
 // Division calucation and send solution
 router.post('/divide', function(req, res){
-  console.log('Received a request: ', req.body);
   solution.pop();
   if (req.body.valueB == 0) {
     res.sendStatus(422);
   } else {
   solution.push(parseInt(req.body.valueA) / parseInt(req.body.valueB));
-  console.log('Solution array: ', solution);
   res.sendStatus(200);
   }
 });
