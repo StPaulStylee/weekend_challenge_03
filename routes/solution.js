@@ -11,7 +11,7 @@ router.get('/', function (req, res){
   console.log('Got a request for: ', solution);
   res.send(solution);
 });
-
+// For arithmetic, try using parseFloat or Number instead of parseInt.
 // Addition calulation and send solution
 router.post('/add', function(req, res){
 console.log('Received a request: ', req.body);

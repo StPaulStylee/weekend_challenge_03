@@ -1,6 +1,8 @@
 $(function(){
 
-//Listen for submit and send the object to the solution router
+// Listen for submit and send the object to the solution router
+  $('button').on('click', numberClick);
+
   $('form').on('submit', function(event){
     event.preventDefault();
     var calculateData = {};
@@ -19,7 +21,7 @@ $(function(){
       data: calculateData,
       success: getSolution
     });
-    // Need some code - likely jquery - that will clear the calulator and start over
+    // Clear the calulator and start over
     $('#clear').on('click', function(){
       $('form').find('input[type=number]').val('');
       $('.calculation').find('span').remove();
@@ -35,7 +37,13 @@ function getSolution () {
       $('.calculation').find('span').remove();
       var $span = $('<span></span>');
       $span.append(solution);
-      $('.calculation').append($span);
+      $('.solution').append($span);
     }
   });
+}
+
+function numberClick() {
+  var buttonValue = $(this).data('value');
+  console.log(buttonValue);
+  $('#valueA').append(buttonValue);
 }
