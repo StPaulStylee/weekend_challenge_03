@@ -32,7 +32,7 @@ function getSolution () {
       $('.calculation').find('span').remove();
       var $span = $('<span></span>');
       $span.append(solution);
-      $('.calculation').append($span);
+      $('.solution').append($span);
     }
   });
 }
