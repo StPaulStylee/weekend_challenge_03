@@ -1,8 +1,8 @@
 $(function(){
 
 // Listen for submit and send the object to the solution router
-  $('button').on('click', numberClick);
-
+  $('.value').on('click', numberClick);
+  $('.operator').on('click', operationClick);
   $('form').on('submit', function(event){
     event.preventDefault();
     var calculateData = {};
@@ -28,6 +28,7 @@ $(function(){
     });
   });
 }); //End of document ready
+var operationClicked = false;
 
 function getSolution () {
   $.ajax({
@@ -41,9 +42,17 @@ function getSolution () {
     }
   });
 }
-
+// Calls the buttons data value and inserts it into the approptiate input box.
 function numberClick() {
   var buttonValue = $(this).data('value');
-  console.log(buttonValue);
-  $('#valueA').append(buttonValue);
+  if (operationClicked == false){
+    $('#valueA').val($('#valueA').val() + buttonValue);
+  }
+  else {
+    $('#valueB').val($('#valueB').val() + buttonValue);
+  }
+}
+// When function is called it swtiches operationClicked value to true, which allows me to switch input boxes.
+function operationClick() {
+  operationClicked = true;
 }
