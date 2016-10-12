@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+class<!DOCTYPE html>
 <html>
 
 <head>
@@ -20,6 +20,8 @@
             <label for='valueB'>Value B</label>
             <input type='number' id='valueB' name='valueB' required />
 
+            <input type='hidden' id='operator' name='operator' required  />
+
             <button type='button' class='value' data-value='0'>0</button>
             <button type='button' class='value' data-value='1'>1</button>
             <button type='button' class='value' data-value='2'>2</button>
@@ -30,13 +32,18 @@
             <button type='button' class='value' data-value='7'>7</button>
             <button type='button' class='value' data-value='8'>8</button>
             <button type='button' class='value' data-value='9'>9</button>
+<!--
+            <input type='button' class='operator' data-value='add' name='add'  />
+            <input type='button' class='operator' data-value='substract' name='subtract'  />
+            <input type='button' class='operator' data-value='multiply' name='multiply'  />
+            <input type='button' class='operator' data-value='divide' name='divide'  />
+-->
+            <button type='button' class='opSelect' data-value='add' name='operator'>+</button>
+            <button type='button' class='opSelect' data-value='subtract' name='operator'>-</button>
+            <button type='button' class='opSelect' data-value='multiply' name='operator'>*</button>
+            <button type='button' class='opSelect' data-value='divide' name='operator'>/</button>
 
-            <button type='button' class='operator' data-value='add' name='operator'>+</button>
-            <button type='button' class='operator' data-value='substract' name='operator'>-</button>
-            <button type='button' class='operator' data-value='multiply' name='operator'>*</button>
-            <button type='button' class='operator' data-value='divide' name='operator'>/</button>
-
-            <button type='submit' id='submit'>Calculate!</button>
+            <button type='submit' id='submit'>=</button>
             <button id='clear'>Clear!</button>
         </form>
         <h2 class='solution'>Solution: </h2>

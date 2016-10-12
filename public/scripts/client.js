@@ -2,7 +2,7 @@ $(function(){
 
 // Listen for submit and send the object to the solution router
   $('.value').on('click', numberClick);
-  $('.operator').on('click', operationClick);
+  $('.opSelect').on('click', operationClick);
   $('form').on('submit', function(event){
     event.preventDefault();
     var calculateData = {};
@@ -23,7 +23,8 @@ $(function(){
     });
     // Clear the calulator and start over
     $('#clear').on('click', function(){
-      $('form').find('input[type=number]').val('');
+      operationClicked = false;
+      $('form').find('input[type=number], input[type=hidden]').val('');
       $('.calculation').find('span').remove();
     });
   });
@@ -52,7 +53,9 @@ function numberClick() {
     $('#valueB').val($('#valueB').val() + buttonValue);
   }
 }
-// When function is called it swtiches operationClicked value to true, which allows me to switch input boxes.
+// When function is called it swtiches operationClicked value to true, which allows us to switch input boxes.
 function operationClick() {
+  var buttonValue = $(this).data('value');
+  $('#operator').val($('#operator').val() + buttonValue);
   operationClicked = true;
 }
